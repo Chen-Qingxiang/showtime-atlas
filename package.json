@@ -1,0 +1,33 @@
+{
+  "name": "showtime-atlas",
+  "version": "2.0.0",
+  "description": "ShowTime Atlas：本地优先、面向上下文比较研究的多层时间轴工作台",
+  "main": "app.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "dev": "node scripts/dev-server.mjs",
+    "test": "node scripts/test.mjs",
+    "test:browser": "node scripts/browser-test.mjs",
+    "check": "node scripts/check.mjs && node scripts/test.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chen-Qingxiang/showtime-atlas.git"
+  },
+  "keywords": [
+    "timeline",
+    "research",
+    "history",
+    "csv",
+    "visualization"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Chen-Qingxiang/showtime-atlas/issues"
+  },
+  "homepage": "https://chen-qingxiang.github.io/showtime-atlas/"
+}

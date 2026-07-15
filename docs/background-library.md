@@ -148,11 +148,11 @@
 
 | 状态 | id / name | tags | regions / scale / density | 预计行数 | 来源框架 | 服务的研究场景 |
 | --- | --- | --- | --- | ---: | --- | --- |
-| 待扩库 | `china-thought-history` / 中国思想史 | china, thought, philosophy, religion | china / year / medium | 22 | 中国思想史通行学派与历史阶段 | 把思想家、经典与政治制度、宗教传播并置 |
-| 待扩库 | `china-science-technology-history` / 中国科技史 | china, science, technology, knowledge | china / year / medium | 22 | 中国科学技术史与全球技术交流框架 | 研究发明、工艺、制度、知识传播及全球比较 |
-| 待扩库 | `china-literature-history` / 中国文学史 | china, literature, writing, culture | china / year / medium | 24 | 中国文学史通行体裁与时代分期 | 对照作家、文体、媒介、科举与政治变迁 |
-| 待扩库 | `china-economy-history` / 中国经济史 | china, economy, trade, agriculture | china / mixed / medium | 22 | 中国经济史、历史人口与全球贸易框架 | 比较土地、税制、市场、货币、工业化与改革 |
-| 待扩库 | `china-art-history` / 中国艺术史 | china, art, painting, material-culture | china / year / medium | 22 | 中国艺术史、物质文化史与考古分期 | 研究书画、器物、宗教艺术、宫廷与市场 |
+| 已交付（批5） | `china-thought-history` / 中国思想史 | china, thought, philosophy, religion | china / year / medium | 22 | 中国思想史通行学派与历史阶段 | 把思想家、经典与政治制度、宗教传播并置 |
+| 已交付（批5） | `china-science-technology-history` / 中国科技史 | china, science, technology, knowledge | china / year / medium | 22 | 中国科学技术史与全球技术交流框架 | 研究发明、工艺、制度、知识传播及全球比较 |
+| 已交付（批5） | `china-literature-history` / 中国文学史 | china, literature, writing, culture | china / year / medium | 24 | 中国文学史通行体裁与时代分期 | 对照作家、文体、媒介、科举与政治变迁 |
+| 已交付（批5） | `china-economy-history` / 中国经济史 | china, economy, trade, agriculture | china / mixed / medium | 22 | 中国经济史、历史人口与全球贸易框架 | 比较土地、税制、市场、货币、工业化与改革 |
+| 已交付（批5） | `china-art-history` / 中国艺术史 | china, art, painting, material-culture | china / year / medium | 22 | 中国艺术史、物质文化史与考古分期 | 研究书画、器物、宗教艺术、宫廷与市场 |
 
 ### 现代 / 当代细分（5）
 
@@ -166,7 +166,7 @@
 
 ## 当前覆盖矩阵（扩库进度）
 
-当前共 69 层：原 40 层加已交付的学科内史 8 层、艺术与日常生活 7 层、社会制度与身份 7 层、区域细分 7 层。本节随每批更新；基线矩阵保留在上方供比较。
+当前共 74 层：原 40 层加已交付的学科内史 8 层、艺术与日常生活 7 层、社会制度与身份 7 层、区域细分 7 层、中国专题 5 层。本节随每批更新；基线矩阵保留在上方供比较。
 
 ### 学科 × 尺度
 
@@ -186,7 +186,7 @@
 | 学科内史 | **— 空白** | `mathematics-history`<br>`physics-history`<br>`chemistry-history`<br>`economic-thought-history`<br>`psychology-cognitive-science` | `logic-computing-ai`<br>`biology-evolution-history`<br>`geography-cartography` |
 | 艺术与日常生活 | **— 空白** | `music-history`<br>`architecture-history`<br>`theatre-performance`<br>`film-moving-image` | `food-history`<br>`clothing-fashion`<br>`sports-competition` |
 | 社会制度与身份 | **— 空白** | `codes-written-law`<br>`environmental-movement` | `currency-measurement`<br>`women-history`<br>`childhood-family`<br>`pandemics-history`<br>`disasters-earthquakes` |
-| 中国专题 | **— 空白** | **— 空白** | **— 空白** |
+| 中国专题 | **— 空白** | `china-thought-history`<br>`china-science-technology-history`<br>`china-literature-history`<br>`china-art-history` | `china-economy-history` |
 | 现代 / 当代系统 | **— 空白** | **— 空白** | **— 空白** |
 
 ### region × scale（层数）
@@ -197,7 +197,7 @@
 | americas | 0 | 0 | 2 |
 | balkans | 0 | 1 | 0 |
 | central-asia | 0 | 1 | 0 |
-| china | 0 | 4 | 0 |
+| china | 0 | 8 | 1 |
 | eastern-europe | 0 | 1 | 0 |
 | egypt | 0 | 1 | 0 |
 | eurasia | 0 | 3 | 0 |

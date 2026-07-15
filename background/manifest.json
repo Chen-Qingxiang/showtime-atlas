@@ -67,5 +67,10 @@
   { "id": "south-america-history", "name": "南美洲历史", "file": "background/南美洲历史_背景.csv", "tags": ["south-america", "indigenous", "colonialism", "revolution"], "regions": ["south-america", "americas"], "scale": "mixed", "density": "medium" },
   { "id": "nordic-history", "name": "北欧历史", "file": "background/北欧历史_背景.csv", "tags": ["nordic", "empire", "state", "welfare"], "regions": ["northern-europe", "europe"], "scale": "year", "density": "medium" },
   { "id": "eastern-europe-russia", "name": "东欧与俄罗斯史", "file": "background/东欧与俄罗斯史_背景.csv", "tags": ["russia", "empire", "state", "revolution"], "regions": ["eastern-europe", "russia", "europe"], "scale": "year", "density": "medium" },
-  { "id": "tibet-inner-asia", "name": "藏区与内亚史", "file": "background/藏区与内亚史_背景.csv", "tags": ["tibet", "inner-asia", "religion", "trade"], "regions": ["tibet", "inner-asia", "china", "eurasia"], "scale": "year", "density": "medium" }
+  { "id": "tibet-inner-asia", "name": "藏区与内亚史", "file": "background/藏区与内亚史_背景.csv", "tags": ["tibet", "inner-asia", "religion", "trade"], "regions": ["tibet", "inner-asia", "china", "eurasia"], "scale": "year", "density": "medium" },
+  { "id": "china-thought-history", "name": "中国思想史", "file": "background/中国思想史_背景.csv", "tags": ["china", "thought", "philosophy", "religion"], "regions": ["china"], "scale": "year", "density": "medium" },
+  { "id": "china-science-technology-history", "name": "中国科技史", "file": "background/中国科技史_背景.csv", "tags": ["china", "science", "technology", "knowledge"], "regions": ["china"], "scale": "year", "density": "medium" },
+  { "id": "china-literature-history", "name": "中国文学史", "file": "background/中国文学史_背景.csv", "tags": ["china", "literature", "writing", "culture"], "regions": ["china"], "scale": "year", "density": "medium" },
+  { "id": "china-economy-history", "name": "中国经济史", "file": "background/中国经济史_背景.csv", "tags": ["china", "economy", "trade", "agriculture"], "regions": ["china"], "scale": "mixed", "density": "medium" },
+  { "id": "china-art-history", "name": "中国艺术史", "file": "background/中国艺术史_背景.csv", "tags": ["china", "art", "painting", "material-culture"], "regions": ["china"], "scale": "year", "density": "medium" }
 ]

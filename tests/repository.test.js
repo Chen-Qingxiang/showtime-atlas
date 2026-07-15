@@ -6,6 +6,7 @@ import { parseCSVLine, parseTimelineCSV } from '../src/csv.js';
 test('背景 manifest、受控词表与仓库 CSV 保持完整一致', async () => {
   const manifest = JSON.parse(await readFile(new URL('../background/manifest.json', import.meta.url), 'utf8'));
   const vocabulary = JSON.parse(await readFile(new URL('../background/vocabulary.json', import.meta.url), 'utf8'));
+  const synonyms = JSON.parse(await readFile(new URL('../background/synonyms.json', import.meta.url), 'utf8'));
   const files = (await readdir(new URL('../background/', import.meta.url))).filter((name) => name.endsWith('.csv'));
   const ids = new Set();
   const referencedFiles = new Set();
@@ -13,6 +14,10 @@ test('背景 manifest、受控词表与仓库 CSV 保持完整一致', async () 
   assert.equal(manifest.length, files.length);
   assert.equal(new Set(vocabulary.tags).size, vocabulary.tags.length);
   assert.equal(new Set(vocabulary.regions).size, vocabulary.regions.length);
+  assert.ok(Object.keys(synonyms.tags).every((tag) => vocabulary.tags.includes(tag)), '同义词文件含未登记 tag');
+  assert.ok(Object.keys(synonyms.regions).every((region) => vocabulary.regions.includes(region)), '同义词文件含未登记 region');
+  assert.ok(Object.values(synonyms.tags).every((aliases) => Array.isArray(aliases) && aliases.every((alias) => typeof alias === 'string' && alias.trim())), 'tag 同义词必须是非空字符串数组');
+  assert.ok(Object.values(synonyms.regions).every((aliases) => Array.isArray(aliases) && aliases.every((alias) => typeof alias === 'string' && alias.trim())), 'region 同义词必须是非空字符串数组');
 
   for (const entry of manifest) {
     assert.match(entry.id, /^[a-z0-9]+(?:-[a-z0-9]+)*$/, `${entry.id}: id 必须使用 kebab-case`);

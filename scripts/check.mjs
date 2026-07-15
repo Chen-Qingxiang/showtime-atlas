@@ -20,6 +20,7 @@ for (const file of [
   'package-lock.json',
   'background/manifest.json',
   'background/vocabulary.json',
+  'background/synonyms.json',
   'docs/manifest.schema.json',
   'examples/苏轼与北宋背景.showtime/00_manifest.json',
 ]) JSON.parse(await readFile(path.join(root, file), 'utf8'));

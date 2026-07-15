@@ -135,6 +135,49 @@ export function renderRecents(records) {
   container.innerHTML = records.slice(0, 8).map((record) => `<button class="compact-item" data-action="open-recent" data-workspace-id="${escapeHTML(record.id)}"><strong>${escapeHTML(record.name)}</strong><span>${record.layerCount} 层 · ${escapeHTML(new Date(record.updatedAt).toLocaleDateString('zh-CN'))}</span></button>`).join('');
 }
 
+export function renderBackgroundRecommendations(recommendations = [], options = {}) {
+  const container = document.getElementById('background-recommendations');
+  const summary = document.getElementById('background-recommendation-summary');
+  const reset = document.getElementById('reset-background-dismissals');
+  if (!container || !summary || !reset) return;
+
+  const dismissedCount = options.dismissedCount || 0;
+  reset.hidden = dismissedCount === 0;
+  reset.textContent = `恢复已忽略项（${dismissedCount}）`;
+
+  if (options.status === 'loading') {
+    summary.textContent = '正在本地解析背景层时间范围…';
+    container.innerHTML = '<div class="recommendation-state" role="status"><strong>正在建立本地索引</strong><span>只读取仓库内 CSV，不会联网或上传研究数据。</span></div>';
+    return;
+  }
+  if (options.status === 'error') {
+    summary.textContent = '推荐分析暂不可用';
+    container.innerHTML = `<div class="recommendation-state"><strong>无法完成推荐</strong><span>${escapeHTML(options.message || '请使用背景菜单手动选择。')}</span></div>`;
+    return;
+  }
+
+  summary.textContent = recommendations.length
+    ? `按时间重叠、尺度、区域与主题词排序，共显示 ${recommendations.length} 个候选${options.unavailableCount ? `；${options.unavailableCount} 层索引不可用` : ''}。`
+    : '当前没有足够可靠的候选；可关闭窗口后从背景菜单手动选择任意层。';
+  if (!recommendations.length) {
+    container.innerHTML = '<div class="recommendation-state"><strong>没有可说明的推荐</strong><span>请先添加含有效时间的专题 CSV，或继续使用手动背景列表。</span></div>';
+    return;
+  }
+
+  container.innerHTML = recommendations.map((entry, index) => `<article class="background-recommendation" data-background-id="${escapeHTML(entry.id)}">
+    <header>
+      <div><span class="eyebrow">候选 ${index + 1} · 匹配分 ${Math.round(entry.score)}</span><h3>${escapeHTML(entry.name)}</h3></div>
+      <span class="recommendation-scale">${escapeHTML(entry.scale)} · ${escapeHTML(entry.density)}</span>
+    </header>
+    <ul class="recommendation-reasons">${entry.reasons.map((reason) => `<li>${escapeHTML(reason)}</li>`).join('')}</ul>
+    <div class="chip-list" aria-label="背景层元数据">${[...(entry.regions || []), ...(entry.tags || [])].map((value) => `<span class="chip">${escapeHTML(value)}</span>`).join('')}</div>
+    <div class="recommendation-actions">
+      <button class="primary" type="button" data-action="load-background-recommendation" data-background-id="${escapeHTML(entry.id)}">加载这一层</button>
+      <button type="button" data-action="dismiss-background-recommendation" data-background-id="${escapeHTML(entry.id)}">暂不推荐</button>
+    </div>
+  </article>`).join('');
+}
+
 export function renderEventDetails(workspace, match) {
   const container = document.getElementById('event-details');
   if (!match) {

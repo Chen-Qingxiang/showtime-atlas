@@ -22,12 +22,19 @@ CSV 格式仍然是 `time,title`。时间可以是年份、区间，或当前工
 
 完整的逐层覆盖矩阵、空白分析与扩库候选见 [`docs/background-library.md`](../docs/background-library.md)。Manifest 的合法 tags、regions、scale 与 density 见 [`VOCABULARY.md`](VOCABULARY.md)；机器检查使用 [`vocabulary.json`](vocabulary.json)。
 
+## 本地推荐如何使用这些层
+
+“查看智能推荐”首次打开时会在浏览器内读取这些 CSV，并复用正式时间解析器聚合每层的起止范围。排序先排除不重叠或尺度悬殊的候选，再综合时间覆盖、Manifest `scale`、从研究文本推断的 `regions` 与 `tags`。中文与英文别名集中维护在 [`synonyms.json`](synonyms.json)，不在应用函数中为个别人名或单一时代写特殊分支。
+
+每张推荐卡都列出时间、尺度、区域和标签理由。推荐不会自动加载：用户可以单独加载、暂时忽略、恢复已忽略项，或绕过排序继续从完整下拉列表手动选择。
+
 ## 维护约束
 
 - 每个 CSV 只含 `time,title` 两列；数据前可放 `#` 注释。
 - 注释头必须写明用途、来源框架，并声明“用于研究定位与比较，不是权威或完整年表”。
 - 默认保持 15–40 条朝代级、思潮级或里程碑级事件；不要把背景层写成残缺的细年表。
 - 新增层时同时更新 `manifest.json`、本文件和覆盖矩阵；新增 tag / region 必须先登记受控词表。
+- 新增或调整推荐别名时只改 `synonyms.json`，键必须已经存在于 `vocabulary.json`，并避免把个别人名当作区域规则。
 - 有争议的起止时间使用近似区间，不用虚构的精确日期。
 
 ## 选层参考框架

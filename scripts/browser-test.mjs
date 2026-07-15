@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { existsSync } from 'node:fs';
 import { mkdtemp, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
@@ -13,13 +14,16 @@ try {
   ({ chromium } = require('playwright'));
 } catch {
   try { ({ chromium } = require(bundledCore)); }
-  catch { throw new Error('未找到 Playwright。请安装 playwright，或设置 PLAYWRIGHT_CORE_PATH。'); }
+  catch {
+    await import('./browser-test-cdp.mjs');
+    process.exit(0);
+  }
 }
 
 const baseURL = process.argv[2] || process.env.SHOWTIME_BASE_URL || 'http://127.0.0.1:4173/';
 const executablePath = process.env.CHROME_PATH || (process.platform === 'win32'
   ? 'C:/Program Files/Google/Chrome/Application/chrome.exe'
-  : '/usr/bin/google-chrome');
+  : ['/usr/bin/google-chrome', '/snap/bin/chromium', '/usr/bin/chromium', '/usr/bin/chromium-browser'].find(existsSync));
 const browser = await chromium.launch({ headless: true, executablePath });
 const consoleErrors = [];
 
@@ -53,6 +57,33 @@ try {
   assert.equal(await page.evaluate(() => window.__SHOWTIME__.workspace.layers.length), 6);
   assert.equal(await page.evaluate(() => window.__SHOWTIME__.workspace.views.length), 2);
 
+  await page.locator('details.tool-menu.wide > summary').click();
+  await page.getByRole('button', { name: '查看智能推荐' }).click();
+  const recommendationDialog = page.locator('#background-recommendation-dialog');
+  await recommendationDialog.locator('.background-recommendation').first().waitFor();
+  assert.match(await recommendationDialog.locator('.background-recommendation').first().innerText(), /时间：.*尺度：.*区域：.*标签：/s);
+  const dismissedBackgroundId = await recommendationDialog.locator('.background-recommendation').first().getAttribute('data-background-id');
+  await recommendationDialog.locator('.background-recommendation').first().getByRole('button', { name: '暂不推荐' }).click();
+  assert.equal(await recommendationDialog.locator(`.background-recommendation[data-background-id="${dismissedBackgroundId}"]`).count(), 0);
+  assert.equal(await recommendationDialog.locator('#reset-background-dismissals').isVisible(), true);
+  await recommendationDialog.locator('button[value="cancel"]').last().click();
+
+  let expectedLayerCount = await page.evaluate(() => window.__SHOWTIME__.workspace.layers.length);
+  await page.locator('details.tool-menu.wide > summary').click();
+  await page.locator('#background-select').selectOption(dismissedBackgroundId);
+  await page.getByRole('button', { name: '加载所选背景' }).click();
+  expectedLayerCount += 1;
+  await page.waitForFunction((count) => window.__SHOWTIME__.workspace.layers.length === count, expectedLayerCount);
+
+  await page.locator('details.tool-menu.wide > summary').click();
+  await page.getByRole('button', { name: '查看智能推荐' }).click();
+  await recommendationDialog.locator('.background-recommendation').first().waitFor();
+  await recommendationDialog.locator('#reset-background-dismissals').click();
+  await recommendationDialog.locator('.background-recommendation').first().getByRole('button', { name: '加载这一层' }).click();
+  expectedLayerCount += 1;
+  await page.waitForFunction((count) => window.__SHOWTIME__.workspace.layers.length === count, expectedLayerCount);
+  await recommendationDialog.locator('button[value="cancel"]').last().click();
+
   const viewBeforeSearch = await page.evaluate(() => ({ ...window.__SHOWTIME__.workspace.view }));
   await page.locator('#global-search').fill('乌台诗案');
   await page.waitForFunction(() => document.querySelectorAll('#search-results .result-item').length > 0);
@@ -77,21 +108,24 @@ try {
     mimeType: 'text/csv',
     buffer: Buffer.from('time,title\n1080,单文件导入事件'),
   });
-  await page.waitForFunction(() => window.__SHOWTIME__.workspace.layers.length >= 7);
+  expectedLayerCount += 1;
+  await page.waitForFunction((count) => window.__SHOWTIME__.workspace.layers.length === count, expectedLayerCount);
   await page.locator('#data-files').setInputFiles([
     { name: 'multi-a.csv', mimeType: 'text/csv', buffer: Buffer.from('time,title\n1081,多文件甲') },
     { name: 'multi-b.csv', mimeType: 'text/csv', buffer: Buffer.from('time,title\n1082,多文件乙') },
   ]);
-  await page.waitForFunction(() => window.__SHOWTIME__.workspace.layers.length >= 9);
+  expectedLayerCount += 2;
+  await page.waitForFunction((count) => window.__SHOWTIME__.workspace.layers.length === count, expectedLayerCount);
   await page.locator('#data-files').setInputFiles(legacyZip);
-  await page.waitForFunction(() => window.__SHOWTIME__.workspace.layers.length >= 11);
+  expectedLayerCount += 2;
+  await page.waitForFunction((count) => window.__SHOWTIME__.workspace.layers.length === count, expectedLayerCount);
   assert.match(await page.locator('#quality-results').innerText(), /成功事件/);
 
   await page.locator('#project-menu > summary').click();
   await page.getByRole('button', { name: '保存项目', exact: true }).click();
   await page.waitForFunction(() => /保存/.test(document.querySelector('#autosave-status').textContent));
   await page.reload({ waitUntil: 'networkidle' });
-  await page.waitForFunction(() => window.__SHOWTIME__?.workspace?.layers?.length >= 11);
+  await page.waitForFunction((count) => window.__SHOWTIME__?.workspace?.layers?.length === count, expectedLayerCount);
   assert.equal(await page.evaluate(() => window.__SHOWTIME__.workspace.name), '苏轼与北宋背景');
   assert.equal(await page.evaluate(() => window.__SHOWTIME__.selfTests?.passed), true);
 
@@ -125,6 +159,15 @@ try {
   assert.equal(await mobile.locator('#timeline-canvas').isVisible(), true);
   assert.equal(await mobile.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), true);
   assert.equal(await mobile.evaluate(() => document.body.classList.contains('left-collapsed') && document.body.classList.contains('right-collapsed')), true);
+  await mobile.locator('details.tool-menu.wide > summary').click();
+  await mobile.getByRole('button', { name: '查看智能推荐' }).click();
+  const mobileRecommendationDialog = mobile.locator('#background-recommendation-dialog');
+  await mobileRecommendationDialog.locator('.background-recommendation').first().waitFor();
+  assert.equal(await mobileRecommendationDialog.locator('.recommendation-actions button').first().isVisible(), true);
+  assert.equal(await mobile.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1), true);
+  const mobileDialogBox = await mobileRecommendationDialog.boundingBox();
+  assert.ok(mobileDialogBox.width <= 390);
+  await mobileRecommendationDialog.locator('button[value="cancel"]').last().click();
   if (process.argv[4]) await mobile.screenshot({ path: path.resolve(process.argv[4]), fullPage: true });
   await mobile.locator('.panel-toggle.left').click();
   assert.equal(await mobile.evaluate(() => !document.body.classList.contains('left-collapsed') && document.body.classList.contains('right-collapsed')), true);
@@ -136,7 +179,7 @@ try {
   await page.close();
 
   assert.deepEqual(consoleErrors, []);
-  console.log('Browser verification passed: desktop full/single/multi/legacy import, search, probes, IndexedDB restore, PNG/SVG/project export, statistics, self-tests and mobile layout.');
+  console.log('Browser verification passed: explainable background recommendations with reject/manual override, desktop full/single/multi/legacy import, search, probes, IndexedDB restore, PNG/SVG/project export, statistics, self-tests and 390px touch layout.');
 } catch (error) {
   if (consoleErrors.length) console.error(consoleErrors.join('\n'));
   throw error;

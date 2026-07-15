@@ -265,6 +265,19 @@ fieldset input { width: auto; }
 .help-columns dl { display: grid; grid-template-columns: 92px 1fr; gap: 5px; margin: 0; }
 .help-columns dt { color: #a9d2f8; font-family: ui-monospace, monospace; font-size: 10px; }
 .help-columns dd { margin: 0; }
+.background-recommendation-dialog { width: min(780px, calc(100vw - 24px)); }
+.recommendation-summary { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.5; }
+.background-recommendations { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.background-recommendation { min-width: 0; display: grid; align-content: start; gap: 9px; padding: 12px; border: 1px solid var(--line); border-radius: 9px; background: #0c121b; }
+.background-recommendation > header { display: flex; align-items: start; justify-content: space-between; gap: 8px; }
+.background-recommendation h3 { margin: 3px 0 0; font-size: 13px; }
+.recommendation-scale { flex: none; color: var(--faint); font-size: 9px; }
+.recommendation-reasons { display: grid; gap: 4px; margin: 0; padding-left: 18px; color: var(--muted); font-size: 10px; line-height: 1.45; }
+.recommendation-actions { display: flex; gap: 6px; margin-top: auto; }
+.recommendation-actions button { flex: 1; font-size: 10px; }
+.recommendation-state { grid-column: 1 / -1; min-height: 150px; display: grid; place-content: center; gap: 6px; text-align: center; color: var(--muted); }
+.recommendation-state strong { color: #c6d2e2; font-size: 13px; }
+.recommendation-state span { max-width: 420px; font-size: 10px; line-height: 1.5; }
 
 .toast-region { position: fixed; z-index: 200; right: 14px; bottom: 14px; width: min(380px, calc(100vw - 28px)); display: grid; gap: 7px; pointer-events: none; }
 .toast { padding: 10px 12px; border: 1px solid #335270; border-radius: 8px; background: rgba(14,21,31,.96); box-shadow: 0 12px 32px rgba(0,0,0,.44); font-size: 11px; line-height: 1.45; animation: toast-in .16s ease-out; white-space: pre-line; }
@@ -312,7 +325,7 @@ fieldset input { width: auto; }
   .view-actions input[type="range"] { flex: 1; min-width: 75px; }
   .minimap-wrap { grid-template-columns: 72px 1fr; padding: 5px 7px; }
   #minimap-canvas { height: 44px; }
-  .dialog-grid.two, .help-columns { grid-template-columns: 1fr; }
+  .dialog-grid.two, .help-columns, .background-recommendations { grid-template-columns: 1fr; }
   .dialog-grid .span-two { grid-column: auto; }
   .dialog-form { padding: 14px; }
 }

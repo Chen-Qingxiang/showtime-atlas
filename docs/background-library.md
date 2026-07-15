@@ -93,11 +93,11 @@
 
 ## 候选新层与研究场景
 
-以下 39 层是任务 B 的分批地图。`预计行数` 是有效事件目标，不含四行 `#` 头；实际交付后应与此值一致。所有 tags / regions 均已在受控词表登记。
+以下 39 层是任务 B 的分批交付地图。`有效事件` 不含四行 `#` 头，均与扩库前的规划目标一致。所有 tags / regions 均已在受控词表登记。
 
 ### 学科内史（8）
 
-| 状态 | id / name | tags | regions / scale / density | 预计行数 | 来源框架 | 服务的研究场景 |
+| 状态 | id / name | tags | regions / scale / density | 有效事件 | 来源框架 | 服务的研究场景 |
 | --- | --- | --- | --- | ---: | --- | --- |
 | 已交付（批1） | `mathematics-history` / 数学史 | mathematics, science, knowledge, measurement | global / year / medium | 24 | 全球数学史通行分期、UNESCO 科学史框架 | 把数学家、定理或教材放进数制、证明与制度化背景 |
 | 已交付（批1） | `logic-computing-ai` / 逻辑、计算与人工智能 | logic, computing, ai, philosophy | global / mixed / medium | 22 | 逻辑史、计算理论史与人工智能范式史 | 比较哲学逻辑、形式系统、算法与 AI 概念谱系 |
@@ -110,7 +110,7 @@
 
 ### 艺术与日常生活（7）
 
-| 状态 | id / name | tags | regions / scale / density | 预计行数 | 来源框架 | 服务的研究场景 |
+| 状态 | id / name | tags | regions / scale / density | 有效事件 | 来源框架 | 服务的研究场景 |
 | --- | --- | --- | --- | ---: | --- | --- |
 | 已交付（批2） | `music-history` / 音乐史 | music, art, culture, performance | global / year / medium | 22 | 全球音乐史通行时期与媒介变迁框架 | 比较作曲家、乐种、宗教仪式、录音与大众传播 |
 | 已交付（批2） | `architecture-history` / 建筑史 | architecture, art, city, technology | global / year / medium | 23 | 全球建筑史、城市史与建造技术分期 | 把建筑师、风格、材料与政治宗教空间并置 |
@@ -122,7 +122,7 @@
 
 ### 社会制度与身份（7）
 
-| 状态 | id / name | tags | regions / scale / density | 预计行数 | 来源框架 | 服务的研究场景 |
+| 状态 | id / name | tags | regions / scale / density | 有效事件 | 来源框架 | 服务的研究场景 |
 | --- | --- | --- | --- | ---: | --- | --- |
 | 已交付（批3） | `currency-measurement` / 货币与度量衡史 | currency, measurement, economy, state | global / mixed / medium | 22 | 货币史、计量史、IMF/BIS 国际货币制度框架 | 比较国家能力、市场、税收、贸易与标准化 |
 | 已交付（批3） | `codes-written-law` / 法典与成文法史 | law, legal-code, state, rights | global / year / medium | 20 | 比较法制史与成文法典通行谱系 | 把法律文本、国家形成、权利与司法制度并置 |
@@ -134,7 +134,7 @@
 
 ### 区域细分（7）
 
-| 状态 | id / name | tags | regions / scale / density | 预计行数 | 来源框架 | 服务的研究场景 |
+| 状态 | id / name | tags | regions / scale / density | 有效事件 | 来源框架 | 服务的研究场景 |
 | --- | --- | --- | --- | ---: | --- | --- |
 | 已交付（批4） | `persia-iran-history` / 波斯与伊朗史 | iran, persia, empire, religion | iran, middle-east / year / medium | 22 | 伊朗史通行王朝分期与世界史帝国框架 | 对照两河、中亚、伊斯兰世界与近现代国家转型 |
 | 已交付（批4） | `central-asia-silk-road-interior` / 中亚与丝路腹地史 | silk-road, trade, empire, migration | central-asia, eurasia / year / medium | 21 | UNESCO 丝绸之路框架与中亚区域史分期 | 研究商路、游牧—绿洲互动、帝国竞争与迁徙 |
@@ -146,7 +146,7 @@
 
 ### 中国断代专题（5）
 
-| 状态 | id / name | tags | regions / scale / density | 预计行数 | 来源框架 | 服务的研究场景 |
+| 状态 | id / name | tags | regions / scale / density | 有效事件 | 来源框架 | 服务的研究场景 |
 | --- | --- | --- | --- | ---: | --- | --- |
 | 已交付（批5） | `china-thought-history` / 中国思想史 | china, thought, philosophy, religion | china / year / medium | 22 | 中国思想史通行学派与历史阶段 | 把思想家、经典与政治制度、宗教传播并置 |
 | 已交付（批5） | `china-science-technology-history` / 中国科技史 | china, science, technology, knowledge | china / year / medium | 22 | 中国科学技术史与全球技术交流框架 | 研究发明、工艺、制度、知识传播及全球比较 |
@@ -156,7 +156,7 @@
 
 ### 现代 / 当代细分（5）
 
-| 状态 | id / name | tags | regions / scale / density | 预计行数 | 来源框架 | 服务的研究场景 |
+| 状态 | id / name | tags | regions / scale / density | 有效事件 | 来源框架 | 服务的研究场景 |
 | --- | --- | --- | --- | ---: | --- | --- |
 | 已交付（批6） | `computer-internet-history` / 计算机与互联网史 | computing, internet, technology, information | global / mixed / medium | 22 | 计算机工程史、Internet Society/IETF 互联网里程碑框架 | 比较硬件、软件、网络、平台与信息社会 |
 | 已交付（批6） | `space-race-exploration` / 航天与太空竞赛史 | space, space-race, politics, technology | global / mixed / medium | 20 | NASA 航天时间线与国际空间探索框架 | 对照冷战竞争、火箭技术、载人航天与合作 |
@@ -229,3 +229,25 @@
 - `open_interval` 与 `mixed_precision` 是有意的信息提示，不是解析失败：前者表示持续至今的制度 / 阶段，后者表示少量近现代条目采用日期级边界。
 
 发现并修复的漂移：原 40 层注释头都有用途说明，但全部缺少明确来源框架和“用于定位、非权威完整年表”声明。现已逐层补上相应来源框架和统一边界声明；有效事件与原始时间未改动。审计规则已进入 Node 质量门，后续新增层也必须满足同一约束。
+
+## 79 层最终交付审计
+
+扩库后 Manifest 与目录均为 79 层，共 1418 个有效事件；尺度分布为 `deep-time` 2、`year` 38、`mixed` 39，密度分布为 `low` 3、`medium` 76。所有文件严格两列，来源框架、研究边界声明、受控 tags / regions / scale / density 和时间解析检查全部通过，阻断质量问题为 0。
+
+库中有 122 条有意开区间，主要表示持续中的制度、运动或当代阶段；它们会随运行年份更新终点。需要可复现快照的项目应在自己的专题 CSV 中写明终点。更多边界见 [`known-limitations.md`](known-limitations.md)。
+
+### 批次、来源风险与回退
+
+候选表已经逐层列出新增 id、Manifest 元数据、实际行数、来源框架和研究场景；下表记录批次级交付与独立回退点。每批都同步了 `manifest.json`、`background/README.md` 和本覆盖矩阵，并在提交前运行完整 Node 质量门。
+
+| 批次 | 层 / 事件 | 来源框架摘要 | 主要风险 | 独立回退 |
+| --- | ---: | --- | --- | --- |
+| 基线治理 | 原 40 层 / 588 | AP World、ICS、OWID、WHO、NASA、IEA 等通行框架 | 只修注释和契约；不改变事件，但统一措辞可能掩盖原编纂差异 | `git revert 8a0ce47` |
+| 批 1：学科内史 | 8 / 175 | 数学、逻辑计算、自然科学与社会科学通行学科史 | 经典里程碑仍可能偏向欧美学术制度 | `git revert 62d4fd0` |
+| 批 2：艺术与日常 | 7 / 146 | 音乐、建筑、表演、电影、饮食、服饰与体育的跨文化分期 | 不同文化传统难以用同一颗粒均衡代表 | `git revert 8bdafd7` |
+| 批 3：制度与身份 | 7 / 140 | WHO / 公共卫生、USGS / 灾害、UN 环境治理及社会史框架 | 身份和家庭类别具有时代性，宏观节点不能代表生活经验 | `git revert 339edd3` |
+| 批 4：区域细分 | 7 / 151 | UNESCO 丝路、区域史与帝国—民族国家分期 | 区域边界、名称与中心叙事存在争议 | `git revert ba33aaf` |
+| 批 5：中国专题 | 5 / 112 | 中国思想、科技、文学、经济、艺术史通行分期 | 朝代框架可能压过地方、群体和跨区域连续性 | `git revert 78f15bb` |
+| 批 6：现代系统 | 5 / 106 | NASA、IPCC / UNFCCC、ITU、互联网工程与冷战国际史 | 当代终点变化快，开区间和平台节点需要周期复核 | `git revert 32ec27d` |
+
+扩库共新增 39 层、830 个事件。推荐器回归在 `973f13d` 中独立交付：7 组 Node 用例覆盖不重叠排除、同尺度优先、区域加权、解释与空数据，真实 Chrome 另验证拒绝、恢复、手动覆盖、桌面和 390 px 触屏；若只需回退推荐行为，可运行 `git revert 973f13d`，不会删除 79 层背景数据。

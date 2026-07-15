@@ -124,13 +124,13 @@
 
 | 状态 | id / name | tags | regions / scale / density | 预计行数 | 来源框架 | 服务的研究场景 |
 | --- | --- | --- | --- | ---: | --- | --- |
-| 待扩库 | `currency-measurement` / 货币与度量衡史 | currency, measurement, economy, state | global / mixed / medium | 22 | 货币史、计量史、IMF/BIS 国际货币制度框架 | 比较国家能力、市场、税收、贸易与标准化 |
-| 待扩库 | `codes-written-law` / 法典与成文法史 | law, legal-code, state, rights | global / year / medium | 20 | 比较法制史与成文法典通行谱系 | 把法律文本、国家形成、权利与司法制度并置 |
-| 待扩库 | `women-history` / 女性史 | women, gender, rights, labor | global / mixed / medium | 22 | 全球女性史、UN Women 与劳动权利框架 | 比较教育、财产权、政治参与、劳动与身体自主 |
-| 待扩库 | `childhood-family` / 儿童与家庭史 | childhood, family, society, education | global / mixed / medium | 18 | 家庭史、历史人口学、UNICEF/ILO 儿童权利框架 | 研究亲属、教育、童工、福利与家庭结构 |
-| 待扩库 | `pandemics-history` / 瘟疫与大流行史 | pandemic, disease, public-health, demography | global / mixed / medium | 20 | WHO 公共卫生里程碑与全球疾病史 | 将大流行作为人口、国家、劳动与知识背景单独比较 |
-| 待扩库 | `disasters-earthquakes` / 灾害与地震史 | disaster, earthquake, environment, society | global / mixed / medium | 20 | USGS 地震尺度、全球灾害史与风险治理框架 | 对照灾害、城市、国家救济、工程与风险认知 |
-| 待扩库 | `environmental-movement` / 环境保护运动史 | environmentalism, conservation, climate, politics | global / year / medium | 18 | UN 环境治理、保护运动史与 IPCC/UNFCCC 框架 | 比较保护观念、法规、社会运动与全球气候治理 |
+| 已交付（批3） | `currency-measurement` / 货币与度量衡史 | currency, measurement, economy, state | global / mixed / medium | 22 | 货币史、计量史、IMF/BIS 国际货币制度框架 | 比较国家能力、市场、税收、贸易与标准化 |
+| 已交付（批3） | `codes-written-law` / 法典与成文法史 | law, legal-code, state, rights | global / year / medium | 20 | 比较法制史与成文法典通行谱系 | 把法律文本、国家形成、权利与司法制度并置 |
+| 已交付（批3） | `women-history` / 女性史 | women, gender, rights, labor | global / mixed / medium | 22 | 全球女性史、UN Women 与劳动权利框架 | 比较教育、财产权、政治参与、劳动与身体自主 |
+| 已交付（批3） | `childhood-family` / 儿童与家庭史 | childhood, family, society, education | global / mixed / medium | 18 | 家庭史、历史人口学、UNICEF/ILO 儿童权利框架 | 研究亲属、教育、童工、福利与家庭结构 |
+| 已交付（批3） | `pandemics-history` / 瘟疫与大流行史 | pandemic, disease, public-health, demography | global / mixed / medium | 20 | WHO 公共卫生里程碑与全球疾病史 | 将大流行作为人口、国家、劳动与知识背景单独比较 |
+| 已交付（批3） | `disasters-earthquakes` / 灾害与地震史 | disaster, earthquake, environment, society | global / mixed / medium | 20 | USGS 地震尺度、全球灾害史与风险治理框架 | 对照灾害、城市、国家救济、工程与风险认知 |
+| 已交付（批3） | `environmental-movement` / 环境保护运动史 | environmentalism, conservation, climate, politics | global / year / medium | 18 | UN 环境治理、保护运动史与 IPCC/UNFCCC 框架 | 比较保护观念、法规、社会运动与全球气候治理 |
 
 ### 区域细分（7）
 
@@ -166,7 +166,7 @@
 
 ## 当前覆盖矩阵（扩库进度）
 
-当前共 55 层：原 40 层加已交付的学科内史 8 层、艺术与日常生活 7 层。本节随每批更新；基线矩阵保留在上方供比较。
+当前共 62 层：原 40 层加已交付的学科内史 8 层、艺术与日常生活 7 层、社会制度与身份 7 层。本节随每批更新；基线矩阵保留在上方供比较。
 
 ### 学科 × 尺度
 
@@ -185,6 +185,7 @@
 | 聚落、交通与能源 | **— 空白** | **— 空白** | `transport-spatial-compression`<br>`energy-history`<br>`urbanization-city-form` |
 | 学科内史 | **— 空白** | `mathematics-history`<br>`physics-history`<br>`chemistry-history`<br>`economic-thought-history`<br>`psychology-cognitive-science` | `logic-computing-ai`<br>`biology-evolution-history`<br>`geography-cartography` |
 | 艺术与日常生活 | **— 空白** | `music-history`<br>`architecture-history`<br>`theatre-performance`<br>`film-moving-image` | `food-history`<br>`clothing-fashion`<br>`sports-competition` |
+| 社会制度与身份 | **— 空白** | `codes-written-law`<br>`environmental-movement` | `currency-measurement`<br>`women-history`<br>`childhood-family`<br>`pandemics-history`<br>`disasters-earthquakes` |
 | 中国专题 | **— 空白** | **— 空白** | **— 空白** |
 | 现代 / 当代系统 | **— 空白** | **— 空白** | **— 空白** |
 
@@ -198,7 +199,7 @@
 | egypt | 0 | 1 | 0 |
 | eurasia | 0 | 1 | 0 |
 | europe | 0 | 3 | 0 |
-| global | 2 | 16 | 25 |
+| global | 2 | 18 | 30 |
 | japan | 0 | 1 | 0 |
 | korea | 0 | 0 | 1 |
 | middle-east | 0 | 2 | 0 |

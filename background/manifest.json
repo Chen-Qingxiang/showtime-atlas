@@ -53,5 +53,12 @@
   { "id": "film-moving-image", "name": "电影与影像史", "file": "background/电影与影像史_背景.csv", "tags": ["film", "visual-media", "media", "technology"], "regions": ["global"], "scale": "year", "density": "medium" },
   { "id": "food-history", "name": "饮食史", "file": "background/饮食史_背景.csv", "tags": ["food", "cuisine", "agriculture", "trade"], "regions": ["global"], "scale": "mixed", "density": "medium" },
   { "id": "clothing-fashion", "name": "服饰与时尚史", "file": "background/服饰与时尚史_背景.csv", "tags": ["clothing", "fashion", "industry", "identity"], "regions": ["global"], "scale": "mixed", "density": "medium" },
-  { "id": "sports-competition", "name": "体育与竞技史", "file": "background/体育与竞技史_背景.csv", "tags": ["sports", "competition", "ritual", "society"], "regions": ["global"], "scale": "mixed", "density": "medium" }
+  { "id": "sports-competition", "name": "体育与竞技史", "file": "background/体育与竞技史_背景.csv", "tags": ["sports", "competition", "ritual", "society"], "regions": ["global"], "scale": "mixed", "density": "medium" },
+  { "id": "currency-measurement", "name": "货币与度量衡史", "file": "background/货币与度量衡史_背景.csv", "tags": ["currency", "measurement", "economy", "state"], "regions": ["global"], "scale": "mixed", "density": "medium" },
+  { "id": "codes-written-law", "name": "法典与成文法史", "file": "background/法典与成文法史_背景.csv", "tags": ["law", "legal-code", "state", "rights"], "regions": ["global"], "scale": "year", "density": "medium" },
+  { "id": "women-history", "name": "女性史", "file": "background/女性史_背景.csv", "tags": ["women", "gender", "rights", "labor"], "regions": ["global"], "scale": "mixed", "density": "medium" },
+  { "id": "childhood-family", "name": "儿童与家庭史", "file": "background/儿童与家庭史_背景.csv", "tags": ["childhood", "family", "society", "education"], "regions": ["global"], "scale": "mixed", "density": "medium" },
+  { "id": "pandemics-history", "name": "瘟疫与大流行史", "file": "background/瘟疫与大流行史_背景.csv", "tags": ["pandemic", "disease", "public-health", "demography"], "regions": ["global"], "scale": "mixed", "density": "medium" },
+  { "id": "disasters-earthquakes", "name": "灾害与地震史", "file": "background/灾害与地震史_背景.csv", "tags": ["disaster", "earthquake", "environment", "society"], "regions": ["global"], "scale": "mixed", "density": "medium" },
+  { "id": "environmental-movement", "name": "环境保护运动史", "file": "background/环境保护运动史_背景.csv", "tags": ["environmentalism", "conservation", "climate", "politics"], "regions": ["global"], "scale": "year", "density": "medium" }
 ]

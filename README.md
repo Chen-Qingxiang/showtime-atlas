@@ -45,7 +45,7 @@ time,title
 - 图层可隐藏、改色、重命名、排序、删除、调暗和 solo
 - 分组可折叠、重命名、排序、整体隐藏、独显和调暗
 - `primary`、`context`、`anchor`、`background` 除颜色外还有线型、透明度、图形和角色标记差异
-- 内置 `background/` 74 个背景层与轻量推荐规则
+- 内置 `background/` 79 个背景层与轻量推荐规则
 
 ### 时间探针
 

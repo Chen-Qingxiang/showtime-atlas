@@ -158,15 +158,15 @@
 
 | 状态 | id / name | tags | regions / scale / density | 预计行数 | 来源框架 | 服务的研究场景 |
 | --- | --- | --- | --- | ---: | --- | --- |
-| 待扩库 | `computer-internet-history` / 计算机与互联网史 | computing, internet, technology, information | global / mixed / medium | 22 | 计算机工程史、Internet Society/IETF 互联网里程碑框架 | 比较硬件、软件、网络、平台与信息社会 |
-| 待扩库 | `space-race-exploration` / 航天与太空竞赛史 | space, space-race, politics, technology | global / mixed / medium | 20 | NASA 航天时间线与国际空间探索框架 | 对照冷战竞争、火箭技术、载人航天与合作 |
-| 待扩库 | `modern-climate-change` / 现代气候变化史 | climate-change, climate, environment, science | global / mixed / medium | 20 | IPCC、UNFCCC、NASA/NOAA 气候科学框架 | 比较科学认识、观测、政策、能源与社会响应 |
-| 待扩库 | `communication-networks` / 通信网络史 | communication, network, media, technology | global / mixed / medium | 22 | ITU 通信史与电报—电话—移动网络技术分期 | 研究媒介、基础设施、国家、企业与空间压缩 |
-| 待扩库 | `cold-war-globalization` / 冷战与全球化格局 | cold-war, globalization, geopolitics, trade | global / year / medium | 22 | 冷战国际史、UN 体系与全球化通行分期 | 为战后政治、经济、文化与区域冲突提供同一骨架 |
+| 已交付（批6） | `computer-internet-history` / 计算机与互联网史 | computing, internet, technology, information | global / mixed / medium | 22 | 计算机工程史、Internet Society/IETF 互联网里程碑框架 | 比较硬件、软件、网络、平台与信息社会 |
+| 已交付（批6） | `space-race-exploration` / 航天与太空竞赛史 | space, space-race, politics, technology | global / mixed / medium | 20 | NASA 航天时间线与国际空间探索框架 | 对照冷战竞争、火箭技术、载人航天与合作 |
+| 已交付（批6） | `modern-climate-change` / 现代气候变化史 | climate-change, climate, environment, science | global / mixed / medium | 20 | IPCC、UNFCCC、NASA/NOAA 气候科学框架 | 比较科学认识、观测、政策、能源与社会响应 |
+| 已交付（批6） | `communication-networks` / 通信网络史 | communication, network, media, technology | global / mixed / medium | 22 | ITU 通信史与电报—电话—移动网络技术分期 | 研究媒介、基础设施、国家、企业与空间压缩 |
+| 已交付（批6） | `cold-war-globalization` / 冷战与全球化格局 | cold-war, globalization, geopolitics, trade | global / year / medium | 22 | 冷战国际史、UN 体系与全球化通行分期 | 为战后政治、经济、文化与区域冲突提供同一骨架 |
 
 ## 当前覆盖矩阵（扩库进度）
 
-当前共 74 层：原 40 层加已交付的学科内史 8 层、艺术与日常生活 7 层、社会制度与身份 7 层、区域细分 7 层、中国专题 5 层。本节随每批更新；基线矩阵保留在上方供比较。
+当前共 79 层：原 40 层加已交付的学科内史 8 层、艺术与日常生活 7 层、社会制度与身份 7 层、区域细分 7 层、中国专题 5 层、现代与当代系统 5 层。本节随每批更新；基线矩阵保留在上方供比较。
 
 ### 学科 × 尺度
 
@@ -187,7 +187,7 @@
 | 艺术与日常生活 | **— 空白** | `music-history`<br>`architecture-history`<br>`theatre-performance`<br>`film-moving-image` | `food-history`<br>`clothing-fashion`<br>`sports-competition` |
 | 社会制度与身份 | **— 空白** | `codes-written-law`<br>`environmental-movement` | `currency-measurement`<br>`women-history`<br>`childhood-family`<br>`pandemics-history`<br>`disasters-earthquakes` |
 | 中国专题 | **— 空白** | `china-thought-history`<br>`china-science-technology-history`<br>`china-literature-history`<br>`china-art-history` | `china-economy-history` |
-| 现代 / 当代系统 | **— 空白** | **— 空白** | **— 空白** |
+| 现代 / 当代系统 | **— 空白** | `cold-war-globalization` | `computer-internet-history`<br>`space-race-exploration`<br>`modern-climate-change`<br>`communication-networks` |
 
 ### region × scale（层数）
 
@@ -202,7 +202,7 @@
 | egypt | 0 | 1 | 0 |
 | eurasia | 0 | 3 | 0 |
 | europe | 0 | 6 | 0 |
-| global | 2 | 18 | 30 |
+| global | 2 | 19 | 34 |
 | inner-asia | 0 | 1 | 0 |
 | iran | 0 | 1 | 0 |
 | japan | 0 | 1 | 0 |

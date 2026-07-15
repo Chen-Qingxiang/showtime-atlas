@@ -72,5 +72,10 @@
   { "id": "china-science-technology-history", "name": "中国科技史", "file": "background/中国科技史_背景.csv", "tags": ["china", "science", "technology", "knowledge"], "regions": ["china"], "scale": "year", "density": "medium" },
   { "id": "china-literature-history", "name": "中国文学史", "file": "background/中国文学史_背景.csv", "tags": ["china", "literature", "writing", "culture"], "regions": ["china"], "scale": "year", "density": "medium" },
   { "id": "china-economy-history", "name": "中国经济史", "file": "background/中国经济史_背景.csv", "tags": ["china", "economy", "trade", "agriculture"], "regions": ["china"], "scale": "mixed", "density": "medium" },
-  { "id": "china-art-history", "name": "中国艺术史", "file": "background/中国艺术史_背景.csv", "tags": ["china", "art", "painting", "material-culture"], "regions": ["china"], "scale": "year", "density": "medium" }
+  { "id": "china-art-history", "name": "中国艺术史", "file": "background/中国艺术史_背景.csv", "tags": ["china", "art", "painting", "material-culture"], "regions": ["china"], "scale": "year", "density": "medium" },
+  { "id": "computer-internet-history", "name": "计算机与互联网史", "file": "background/计算机与互联网史_背景.csv", "tags": ["computing", "internet", "technology", "information"], "regions": ["global"], "scale": "mixed", "density": "medium" },
+  { "id": "space-race-exploration", "name": "航天与太空竞赛史", "file": "background/航天与太空竞赛史_背景.csv", "tags": ["space", "space-race", "politics", "technology"], "regions": ["global"], "scale": "mixed", "density": "medium" },
+  { "id": "modern-climate-change", "name": "现代气候变化史", "file": "background/现代气候变化史_背景.csv", "tags": ["climate-change", "climate", "environment", "science"], "regions": ["global"], "scale": "mixed", "density": "medium" },
+  { "id": "communication-networks", "name": "通信网络史", "file": "background/通信网络史_背景.csv", "tags": ["communication", "network", "media", "technology"], "regions": ["global"], "scale": "mixed", "density": "medium" },
+  { "id": "cold-war-globalization", "name": "冷战与全球化格局", "file": "background/冷战与全球化格局_背景.csv", "tags": ["cold-war", "globalization", "geopolitics", "trade"], "regions": ["global"], "scale": "year", "density": "medium" }
 ]

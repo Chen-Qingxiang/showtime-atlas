@@ -38,5 +38,13 @@
   { "id": "political-revolutions", "name": "政治革命", "file": "background/政治革命_背景.csv", "tags": ["revolution", "politics", "state", "modern"], "regions": ["global"], "scale": "mixed", "density": "medium" },
   { "id": "democratization-regimes", "name": "政治制度与民主化", "file": "background/政治制度与民主化_背景.csv", "tags": ["democracy", "regime", "politics", "rights"], "regions": ["global"], "scale": "mixed", "density": "medium" },
   { "id": "law-human-rights", "name": "国家制度法律与人权", "file": "background/国家制度法律与人权_背景.csv", "tags": ["law", "rights", "state", "international"], "regions": ["global"], "scale": "mixed", "density": "medium" },
-  { "id": "labor-social-movements-gender", "name": "劳动制度社会运动与性别", "file": "background/劳动制度社会运动与性别_背景.csv", "tags": ["labor", "social-movement", "gender", "rights"], "regions": ["global"], "scale": "mixed", "density": "medium" }
+  { "id": "labor-social-movements-gender", "name": "劳动制度社会运动与性别", "file": "background/劳动制度社会运动与性别_背景.csv", "tags": ["labor", "social-movement", "gender", "rights"], "regions": ["global"], "scale": "mixed", "density": "medium" },
+  { "id": "mathematics-history", "name": "数学史", "file": "background/数学史_背景.csv", "tags": ["mathematics", "science", "knowledge", "measurement"], "regions": ["global"], "scale": "year", "density": "medium" },
+  { "id": "logic-computing-ai", "name": "逻辑、计算与人工智能", "file": "background/逻辑计算与人工智能_背景.csv", "tags": ["logic", "computing", "ai", "philosophy"], "regions": ["global"], "scale": "mixed", "density": "medium" },
+  { "id": "physics-history", "name": "物理学史", "file": "background/物理学史_背景.csv", "tags": ["physics", "science", "astronomy", "energy"], "regions": ["global"], "scale": "year", "density": "medium" },
+  { "id": "chemistry-history", "name": "化学史", "file": "background/化学史_背景.csv", "tags": ["chemistry", "science", "industry", "materials"], "regions": ["global"], "scale": "year", "density": "medium" },
+  { "id": "biology-evolution-history", "name": "生物学与演化论史", "file": "background/生物学与演化论史_背景.csv", "tags": ["biology", "evolution", "genetics", "life"], "regions": ["global"], "scale": "mixed", "density": "medium" },
+  { "id": "economic-thought-history", "name": "经济思想史", "file": "background/经济思想史_背景.csv", "tags": ["economic-thought", "economy", "capitalism", "thought"], "regions": ["global"], "scale": "year", "density": "medium" },
+  { "id": "psychology-cognitive-science", "name": "心理学与认知科学史", "file": "background/心理学与认知科学史_背景.csv", "tags": ["psychology", "cognitive-science", "medicine", "science"], "regions": ["global"], "scale": "year", "density": "medium" },
+  { "id": "geography-cartography", "name": "地理与制图史", "file": "background/地理与制图史_背景.csv", "tags": ["geography", "cartography", "exploration", "knowledge"], "regions": ["global"], "scale": "mixed", "density": "medium" }
 ]

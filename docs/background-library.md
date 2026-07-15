@@ -99,14 +99,14 @@
 
 | 状态 | id / name | tags | regions / scale / density | 预计行数 | 来源框架 | 服务的研究场景 |
 | --- | --- | --- | --- | ---: | --- | --- |
-| 待扩库 | `mathematics-history` / 数学史 | mathematics, science, knowledge, measurement | global / year / medium | 24 | 全球数学史通行分期、UNESCO 科学史框架 | 把数学家、定理或教材放进数制、证明与制度化背景 |
-| 待扩库 | `logic-computing-ai` / 逻辑、计算与人工智能 | logic, computing, ai, philosophy | global / mixed / medium | 22 | 逻辑史、计算理论史与人工智能范式史 | 比较哲学逻辑、形式系统、算法与 AI 概念谱系 |
-| 待扩库 | `physics-history` / 物理学史 | physics, science, astronomy, energy | global / year / medium | 24 | 全球物理学史与科学革命通行分期 | 为物理学家、理论与仪器提供古典到现代背景 |
-| 待扩库 | `chemistry-history` / 化学史 | chemistry, science, industry, materials | global / year / medium | 20 | 炼金术—化学革命—工业化学的通行科学史框架 | 比较物质观、实验方法、元素体系与产业变化 |
-| 待扩库 | `biology-evolution-history` / 生物学与演化论史 | biology, evolution, genetics, life | global / mixed / medium | 22 | 自然史、生物学、演化论与遗传学通行分期 | 研究物种观、演化论、遗传学或生态学时补足学科脉络 |
-| 待扩库 | `economic-thought-history` / 经济思想史 | economic-thought, economy, capitalism, thought | global / year / medium | 22 | 经济思想史与政治经济学通行学派分期 | 把经济学家、政策争论与制度背景并置 |
-| 待扩库 | `psychology-cognitive-science` / 心理学与认知科学史 | psychology, cognitive-science, medicine, science | global / year / medium | 20 | 心理学制度史与认知科学跨学科史 | 对照心理理论、实验方法、精神医学与计算模型 |
-| 待扩库 | `geography-cartography` / 地理与制图史 | geography, cartography, exploration, knowledge | global / mixed / medium | 21 | 地理知识史、制图史与测绘技术通行框架 | 研究旅行、帝国、地图、边界或空间观念时提供背景 |
+| 已交付（批1） | `mathematics-history` / 数学史 | mathematics, science, knowledge, measurement | global / year / medium | 24 | 全球数学史通行分期、UNESCO 科学史框架 | 把数学家、定理或教材放进数制、证明与制度化背景 |
+| 已交付（批1） | `logic-computing-ai` / 逻辑、计算与人工智能 | logic, computing, ai, philosophy | global / mixed / medium | 22 | 逻辑史、计算理论史与人工智能范式史 | 比较哲学逻辑、形式系统、算法与 AI 概念谱系 |
+| 已交付（批1） | `physics-history` / 物理学史 | physics, science, astronomy, energy | global / year / medium | 24 | 全球物理学史与科学革命通行分期 | 为物理学家、理论与仪器提供古典到现代背景 |
+| 已交付（批1） | `chemistry-history` / 化学史 | chemistry, science, industry, materials | global / year / medium | 20 | 炼金术—化学革命—工业化学的通行科学史框架 | 比较物质观、实验方法、元素体系与产业变化 |
+| 已交付（批1） | `biology-evolution-history` / 生物学与演化论史 | biology, evolution, genetics, life | global / mixed / medium | 22 | 自然史、生物学、演化论与遗传学通行分期 | 研究物种观、演化论、遗传学或生态学时补足学科脉络 |
+| 已交付（批1） | `economic-thought-history` / 经济思想史 | economic-thought, economy, capitalism, thought | global / year / medium | 22 | 经济思想史与政治经济学通行学派分期 | 把经济学家、政策争论与制度背景并置 |
+| 已交付（批1） | `psychology-cognitive-science` / 心理学与认知科学史 | psychology, cognitive-science, medicine, science | global / year / medium | 20 | 心理学制度史与认知科学跨学科史 | 对照心理理论、实验方法、精神医学与计算模型 |
+| 已交付（批1） | `geography-cartography` / 地理与制图史 | geography, cartography, exploration, knowledge | global / mixed / medium | 21 | 地理知识史、制图史与测绘技术通行框架 | 研究旅行、帝国、地图、边界或空间观念时提供背景 |
 
 ### 艺术与日常生活（7）
 
@@ -163,6 +163,51 @@
 | 待扩库 | `modern-climate-change` / 现代气候变化史 | climate-change, climate, environment, science | global / mixed / medium | 20 | IPCC、UNFCCC、NASA/NOAA 气候科学框架 | 比较科学认识、观测、政策、能源与社会响应 |
 | 待扩库 | `communication-networks` / 通信网络史 | communication, network, media, technology | global / mixed / medium | 22 | ITU 通信史与电报—电话—移动网络技术分期 | 研究媒介、基础设施、国家、企业与空间压缩 |
 | 待扩库 | `cold-war-globalization` / 冷战与全球化格局 | cold-war, globalization, geopolitics, trade | global / year / medium | 22 | 冷战国际史、UN 体系与全球化通行分期 | 为战后政治、经济、文化与区域冲突提供同一骨架 |
+
+## 当前覆盖矩阵（扩库进度）
+
+当前共 48 层：原 40 层加已交付的学科内史 8 层。本节随每批更新；基线矩阵保留在上方供比较。
+
+### 学科 × 尺度
+
+| 学科 | deep-time | year | mixed |
+| --- | --- | --- | --- |
+| 综合 / 大历史 | `big-history-thresholds` | `ap-world-periods` | **— 空白** |
+| 地球、生命与环境 | `geology-life` | **— 空白** | `climate-environment` |
+| 人口、生计与社会 | **— 空白** | **— 空白** | `human-migration-population`<br>`agriculture-domestication`<br>`labor-social-movements-gender` |
+| 政治、制度与冲突 | **— 空白** | `world-empires`<br>`colonialism-decolonization` | `major-wars`<br>`political-revolutions`<br>`democratization-regimes`<br>`law-human-rights` |
+| 区域通史 | **— 空白** | `china-dynasties`<br>`europe-periods`<br>`islamic-world`<br>`south-asia-history`<br>`japan-periods`<br>`southeast-asia-history`<br>`africa-kingdoms-colonialism`<br>`eurasian-steppe-nomads`<br>`ancient-near-east-egypt` | `korea-history`<br>`americas-civilizations-colonialism`<br>`oceania-pacific-world` |
+| 思想与宗教 | **— 空白** | `thought-movements` | `religion-history` |
+| 文学、艺术与文化 | **— 空白** | `literature-art` | **— 空白** |
+| 教育、知识与媒介 | **— 空白** | `language-translation` | `education-knowledge-institutions`<br>`media-information` |
+| 科学、技术与医学 | **— 空白** | `science-technology` | `medicine-public-health`<br>`astronomy-space` |
+| 经济、贸易与金融 | **— 空白** | **— 空白** | `trade-networks`<br>`economy-society`<br>`capitalism-finance` |
+| 聚落、交通与能源 | **— 空白** | **— 空白** | `transport-spatial-compression`<br>`energy-history`<br>`urbanization-city-form` |
+| 学科内史 | **— 空白** | `mathematics-history`<br>`physics-history`<br>`chemistry-history`<br>`economic-thought-history`<br>`psychology-cognitive-science` | `logic-computing-ai`<br>`biology-evolution-history`<br>`geography-cartography` |
+| 艺术与日常生活 | **— 空白** | **— 空白** | **— 空白** |
+| 中国专题 | **— 空白** | **— 空白** | **— 空白** |
+| 现代 / 当代系统 | **— 空白** | **— 空白** | **— 空白** |
+
+### region × scale（层数）
+
+| region | deep-time | year | mixed |
+| --- | ---: | ---: | ---: |
+| africa | 0 | 1 | 0 |
+| americas | 0 | 0 | 1 |
+| china | 0 | 3 | 0 |
+| egypt | 0 | 1 | 0 |
+| eurasia | 0 | 1 | 0 |
+| europe | 0 | 3 | 0 |
+| global | 2 | 12 | 22 |
+| japan | 0 | 1 | 0 |
+| korea | 0 | 0 | 1 |
+| middle-east | 0 | 2 | 0 |
+| north-africa | 0 | 1 | 0 |
+| oceania | 0 | 0 | 1 |
+| pacific | 0 | 0 | 1 |
+| south-asia | 0 | 1 | 0 |
+| southeast-asia | 0 | 1 | 0 |
+| **未有独立层的已登记 region** | **— 空白** | balkans, central-asia, eastern-europe, inner-asia, iran, northern-europe, russia, south-america, tibet | **— 空白** |
 
 ## 40 层一致性审计
 

@@ -136,13 +136,13 @@
 
 | 状态 | id / name | tags | regions / scale / density | 预计行数 | 来源框架 | 服务的研究场景 |
 | --- | --- | --- | --- | ---: | --- | --- |
-| 待扩库 | `persia-iran-history` / 波斯与伊朗史 | iran, persia, empire, religion | iran, middle-east / year / medium | 22 | 伊朗史通行王朝分期与世界史帝国框架 | 对照两河、中亚、伊斯兰世界与近现代国家转型 |
-| 待扩库 | `central-asia-silk-road-interior` / 中亚与丝路腹地史 | silk-road, trade, empire, migration | central-asia, eurasia / year / medium | 21 | UNESCO 丝绸之路框架与中亚区域史分期 | 研究商路、游牧—绿洲互动、帝国竞争与迁徙 |
-| 待扩库 | `balkans-southeast-europe` / 巴尔干与东南欧史 | balkans, empire, nationalism, conflict | balkans, europe / year / medium | 22 | 东南欧区域史、奥斯曼—哈布斯堡边疆与民族国家分期 | 比较帝国边疆、宗教多样性、民族主义与战争 |
-| 待扩库 | `south-america-history` / 南美洲历史 | south-america, indigenous, colonialism, revolution | south-america, americas / mixed / medium | 22 | 安第斯考古、殖民史、独立与拉美现代史分期 | 研究原住民国家、殖民经济、独立与社会运动 |
-| 待扩库 | `nordic-history` / 北欧历史 | nordic, empire, state, welfare | northern-europe, europe / year / medium | 20 | 北欧区域史、维京时代、国家形成与福利国家框架 | 对照海洋网络、宗教改革、民族国家与社会政策 |
-| 待扩库 | `eastern-europe-russia` / 东欧与俄罗斯史 | russia, empire, state, revolution | eastern-europe, russia, europe / year / medium | 24 | 东欧区域史、俄罗斯帝国—苏联—后苏联分期 | 比较帝国、农奴制、革命、社会主义与边界变化 |
-| 待扩库 | `tibet-inner-asia` / 藏区与内亚史 | tibet, inner-asia, religion, trade | tibet, inner-asia, china, eurasia / year / medium | 20 | 藏区史、内亚史与跨喜马拉雅交流框架 | 研究宗教网络、帝国关系、贸易与高原社会 |
+| 已交付（批4） | `persia-iran-history` / 波斯与伊朗史 | iran, persia, empire, religion | iran, middle-east / year / medium | 22 | 伊朗史通行王朝分期与世界史帝国框架 | 对照两河、中亚、伊斯兰世界与近现代国家转型 |
+| 已交付（批4） | `central-asia-silk-road-interior` / 中亚与丝路腹地史 | silk-road, trade, empire, migration | central-asia, eurasia / year / medium | 21 | UNESCO 丝绸之路框架与中亚区域史分期 | 研究商路、游牧—绿洲互动、帝国竞争与迁徙 |
+| 已交付（批4） | `balkans-southeast-europe` / 巴尔干与东南欧史 | balkans, empire, nationalism, conflict | balkans, europe / year / medium | 22 | 东南欧区域史、奥斯曼—哈布斯堡边疆与民族国家分期 | 比较帝国边疆、宗教多样性、民族主义与战争 |
+| 已交付（批4） | `south-america-history` / 南美洲历史 | south-america, indigenous, colonialism, revolution | south-america, americas / mixed / medium | 22 | 安第斯考古、殖民史、独立与拉美现代史分期 | 研究原住民国家、殖民经济、独立与社会运动 |
+| 已交付（批4） | `nordic-history` / 北欧历史 | nordic, empire, state, welfare | northern-europe, europe / year / medium | 20 | 北欧区域史、维京时代、国家形成与福利国家框架 | 对照海洋网络、宗教改革、民族国家与社会政策 |
+| 已交付（批4） | `eastern-europe-russia` / 东欧与俄罗斯史 | russia, empire, state, revolution | eastern-europe, russia, europe / year / medium | 24 | 东欧区域史、俄罗斯帝国—苏联—后苏联分期 | 比较帝国、农奴制、革命、社会主义与边界变化 |
+| 已交付（批4） | `tibet-inner-asia` / 藏区与内亚史 | tibet, inner-asia, religion, trade | tibet, inner-asia, china, eurasia / year / medium | 20 | 藏区史、内亚史与跨喜马拉雅交流框架 | 研究宗教网络、帝国关系、贸易与高原社会 |
 
 ### 中国断代专题（5）
 
@@ -166,7 +166,7 @@
 
 ## 当前覆盖矩阵（扩库进度）
 
-当前共 62 层：原 40 层加已交付的学科内史 8 层、艺术与日常生活 7 层、社会制度与身份 7 层。本节随每批更新；基线矩阵保留在上方供比较。
+当前共 69 层：原 40 层加已交付的学科内史 8 层、艺术与日常生活 7 层、社会制度与身份 7 层、区域细分 7 层。本节随每批更新；基线矩阵保留在上方供比较。
 
 ### 学科 × 尺度
 
@@ -176,7 +176,7 @@
 | 地球、生命与环境 | `geology-life` | **— 空白** | `climate-environment` |
 | 人口、生计与社会 | **— 空白** | **— 空白** | `human-migration-population`<br>`agriculture-domestication`<br>`labor-social-movements-gender` |
 | 政治、制度与冲突 | **— 空白** | `world-empires`<br>`colonialism-decolonization` | `major-wars`<br>`political-revolutions`<br>`democratization-regimes`<br>`law-human-rights` |
-| 区域通史 | **— 空白** | `china-dynasties`<br>`europe-periods`<br>`islamic-world`<br>`south-asia-history`<br>`japan-periods`<br>`southeast-asia-history`<br>`africa-kingdoms-colonialism`<br>`eurasian-steppe-nomads`<br>`ancient-near-east-egypt` | `korea-history`<br>`americas-civilizations-colonialism`<br>`oceania-pacific-world` |
+| 区域通史 | **— 空白** | `china-dynasties`<br>`europe-periods`<br>`islamic-world`<br>`south-asia-history`<br>`japan-periods`<br>`southeast-asia-history`<br>`africa-kingdoms-colonialism`<br>`eurasian-steppe-nomads`<br>`ancient-near-east-egypt`<br>`persia-iran-history`<br>`central-asia-silk-road-interior`<br>`balkans-southeast-europe`<br>`nordic-history`<br>`eastern-europe-russia`<br>`tibet-inner-asia` | `korea-history`<br>`americas-civilizations-colonialism`<br>`oceania-pacific-world`<br>`south-america-history` |
 | 思想与宗教 | **— 空白** | `thought-movements` | `religion-history` |
 | 文学、艺术与文化 | **— 空白** | `literature-art` | **— 空白** |
 | 教育、知识与媒介 | **— 空白** | `language-translation` | `education-knowledge-institutions`<br>`media-information` |
@@ -194,21 +194,29 @@
 | region | deep-time | year | mixed |
 | --- | ---: | ---: | ---: |
 | africa | 0 | 1 | 0 |
-| americas | 0 | 0 | 1 |
-| china | 0 | 3 | 0 |
+| americas | 0 | 0 | 2 |
+| balkans | 0 | 1 | 0 |
+| central-asia | 0 | 1 | 0 |
+| china | 0 | 4 | 0 |
+| eastern-europe | 0 | 1 | 0 |
 | egypt | 0 | 1 | 0 |
-| eurasia | 0 | 1 | 0 |
-| europe | 0 | 3 | 0 |
+| eurasia | 0 | 3 | 0 |
+| europe | 0 | 6 | 0 |
 | global | 2 | 18 | 30 |
+| inner-asia | 0 | 1 | 0 |
+| iran | 0 | 1 | 0 |
 | japan | 0 | 1 | 0 |
 | korea | 0 | 0 | 1 |
-| middle-east | 0 | 2 | 0 |
+| middle-east | 0 | 3 | 0 |
 | north-africa | 0 | 1 | 0 |
+| northern-europe | 0 | 1 | 0 |
 | oceania | 0 | 0 | 1 |
 | pacific | 0 | 0 | 1 |
+| russia | 0 | 1 | 0 |
+| south-america | 0 | 0 | 1 |
 | south-asia | 0 | 1 | 0 |
 | southeast-asia | 0 | 1 | 0 |
-| **未有独立层的已登记 region** | **— 空白** | balkans, central-asia, eastern-europe, inner-asia, iran, northern-europe, russia, south-america, tibet | **— 空白** |
+| tibet | 0 | 1 | 0 |
 
 ## 40 层一致性审计
 

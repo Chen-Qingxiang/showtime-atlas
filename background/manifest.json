@@ -60,5 +60,12 @@
   { "id": "childhood-family", "name": "儿童与家庭史", "file": "background/儿童与家庭史_背景.csv", "tags": ["childhood", "family", "society", "education"], "regions": ["global"], "scale": "mixed", "density": "medium" },
   { "id": "pandemics-history", "name": "瘟疫与大流行史", "file": "background/瘟疫与大流行史_背景.csv", "tags": ["pandemic", "disease", "public-health", "demography"], "regions": ["global"], "scale": "mixed", "density": "medium" },
   { "id": "disasters-earthquakes", "name": "灾害与地震史", "file": "background/灾害与地震史_背景.csv", "tags": ["disaster", "earthquake", "environment", "society"], "regions": ["global"], "scale": "mixed", "density": "medium" },
-  { "id": "environmental-movement", "name": "环境保护运动史", "file": "background/环境保护运动史_背景.csv", "tags": ["environmentalism", "conservation", "climate", "politics"], "regions": ["global"], "scale": "year", "density": "medium" }
+  { "id": "environmental-movement", "name": "环境保护运动史", "file": "background/环境保护运动史_背景.csv", "tags": ["environmentalism", "conservation", "climate", "politics"], "regions": ["global"], "scale": "year", "density": "medium" },
+  { "id": "persia-iran-history", "name": "波斯与伊朗史", "file": "background/波斯与伊朗史_背景.csv", "tags": ["iran", "persia", "empire", "religion"], "regions": ["iran", "middle-east"], "scale": "year", "density": "medium" },
+  { "id": "central-asia-silk-road-interior", "name": "中亚与丝路腹地史", "file": "background/中亚与丝路腹地史_背景.csv", "tags": ["silk-road", "trade", "empire", "migration"], "regions": ["central-asia", "eurasia"], "scale": "year", "density": "medium" },
+  { "id": "balkans-southeast-europe", "name": "巴尔干与东南欧史", "file": "background/巴尔干与东南欧史_背景.csv", "tags": ["balkans", "empire", "nationalism", "conflict"], "regions": ["balkans", "europe"], "scale": "year", "density": "medium" },
+  { "id": "south-america-history", "name": "南美洲历史", "file": "background/南美洲历史_背景.csv", "tags": ["south-america", "indigenous", "colonialism", "revolution"], "regions": ["south-america", "americas"], "scale": "mixed", "density": "medium" },
+  { "id": "nordic-history", "name": "北欧历史", "file": "background/北欧历史_背景.csv", "tags": ["nordic", "empire", "state", "welfare"], "regions": ["northern-europe", "europe"], "scale": "year", "density": "medium" },
+  { "id": "eastern-europe-russia", "name": "东欧与俄罗斯史", "file": "background/东欧与俄罗斯史_背景.csv", "tags": ["russia", "empire", "state", "revolution"], "regions": ["eastern-europe", "russia", "europe"], "scale": "year", "density": "medium" },
+  { "id": "tibet-inner-asia", "name": "藏区与内亚史", "file": "background/藏区与内亚史_背景.csv", "tags": ["tibet", "inner-asia", "religion", "trade"], "regions": ["tibet", "inner-asia", "china", "eurasia"], "scale": "year", "density": "medium" }
 ]

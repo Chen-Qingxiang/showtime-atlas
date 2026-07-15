@@ -170,7 +170,7 @@ export function renderBackgroundRecommendations(recommendations = [], options = 
       <span class="recommendation-scale">${escapeHTML(entry.scale)} · ${escapeHTML(entry.density)}</span>
     </header>
     <ul class="recommendation-reasons">${entry.reasons.map((reason) => `<li>${escapeHTML(reason)}</li>`).join('')}</ul>
-    <div class="chip-list" aria-label="背景层元数据">${[...(entry.regions || []), ...(entry.tags || [])].map((value) => `<span class="chip">${escapeHTML(value)}</span>`).join('')}</div>
+    <div class="chip-list" aria-label="背景层元数据">${[...new Set([...(entry.regions || []), ...(entry.tags || [])])].map((value) => `<span class="chip">${escapeHTML(value)}</span>`).join('')}</div>
     <div class="recommendation-actions">
       <button class="primary" type="button" data-action="load-background-recommendation" data-background-id="${escapeHTML(entry.id)}">加载这一层</button>
       <button type="button" data-action="dismiss-background-recommendation" data-background-id="${escapeHTML(entry.id)}">暂不推荐</button>

@@ -112,13 +112,13 @@
 
 | 状态 | id / name | tags | regions / scale / density | 预计行数 | 来源框架 | 服务的研究场景 |
 | --- | --- | --- | --- | ---: | --- | --- |
-| 待扩库 | `music-history` / 音乐史 | music, art, culture, performance | global / year / medium | 22 | 全球音乐史通行时期与媒介变迁框架 | 比较作曲家、乐种、宗教仪式、录音与大众传播 |
-| 待扩库 | `architecture-history` / 建筑史 | architecture, art, city, technology | global / year / medium | 23 | 全球建筑史、城市史与建造技术分期 | 把建筑师、风格、材料与政治宗教空间并置 |
-| 待扩库 | `theatre-performance` / 戏剧与表演史 | theatre, performance, literature, ritual | global / year / medium | 20 | 全球戏剧史与表演研究通行分期 | 对照文本、舞台、仪式、剧团制度与观众形成 |
-| 待扩库 | `film-moving-image` / 电影与影像史 | film, visual-media, media, technology | global / year / medium | 20 | 电影史、摄影史与广播影像媒介分期 | 研究导演、作品、宣传、技术制式与大众文化 |
-| 待扩库 | `food-history` / 饮食史 | food, cuisine, agriculture, trade | global / mixed / medium | 21 | FAO 农业史、哥伦布大交换与全球饮食史框架 | 对照作物传播、贸易、阶层、工业食品与身份 |
-| 待扩库 | `clothing-fashion` / 服饰与时尚史 | clothing, fashion, industry, identity | global / mixed / medium | 20 | 纺织技术史、物质文化史与现代时尚体系分期 | 研究服饰、身份、贸易、劳动和消费文化 |
-| 待扩库 | `sports-competition` / 体育与竞技史 | sports, competition, ritual, society | global / mixed / medium | 20 | 古代竞技史、现代体育制度与奥林匹克运动框架 | 对照身体、仪式、民族国家、商业化与媒体 |
+| 已交付（批2） | `music-history` / 音乐史 | music, art, culture, performance | global / year / medium | 22 | 全球音乐史通行时期与媒介变迁框架 | 比较作曲家、乐种、宗教仪式、录音与大众传播 |
+| 已交付（批2） | `architecture-history` / 建筑史 | architecture, art, city, technology | global / year / medium | 23 | 全球建筑史、城市史与建造技术分期 | 把建筑师、风格、材料与政治宗教空间并置 |
+| 已交付（批2） | `theatre-performance` / 戏剧与表演史 | theatre, performance, literature, ritual | global / year / medium | 20 | 全球戏剧史与表演研究通行分期 | 对照文本、舞台、仪式、剧团制度与观众形成 |
+| 已交付（批2） | `film-moving-image` / 电影与影像史 | film, visual-media, media, technology | global / year / medium | 20 | 电影史、摄影史与广播影像媒介分期 | 研究导演、作品、宣传、技术制式与大众文化 |
+| 已交付（批2） | `food-history` / 饮食史 | food, cuisine, agriculture, trade | global / mixed / medium | 21 | FAO 农业史、哥伦布大交换与全球饮食史框架 | 对照作物传播、贸易、阶层、工业食品与身份 |
+| 已交付（批2） | `clothing-fashion` / 服饰与时尚史 | clothing, fashion, industry, identity | global / mixed / medium | 20 | 纺织技术史、物质文化史与现代时尚体系分期 | 研究服饰、身份、贸易、劳动和消费文化 |
+| 已交付（批2） | `sports-competition` / 体育与竞技史 | sports, competition, ritual, society | global / mixed / medium | 20 | 古代竞技史、现代体育制度与奥林匹克运动框架 | 对照身体、仪式、民族国家、商业化与媒体 |
 
 ### 社会制度与身份（7）
 
@@ -166,7 +166,7 @@
 
 ## 当前覆盖矩阵（扩库进度）
 
-当前共 48 层：原 40 层加已交付的学科内史 8 层。本节随每批更新；基线矩阵保留在上方供比较。
+当前共 55 层：原 40 层加已交付的学科内史 8 层、艺术与日常生活 7 层。本节随每批更新；基线矩阵保留在上方供比较。
 
 ### 学科 × 尺度
 
@@ -184,7 +184,7 @@
 | 经济、贸易与金融 | **— 空白** | **— 空白** | `trade-networks`<br>`economy-society`<br>`capitalism-finance` |
 | 聚落、交通与能源 | **— 空白** | **— 空白** | `transport-spatial-compression`<br>`energy-history`<br>`urbanization-city-form` |
 | 学科内史 | **— 空白** | `mathematics-history`<br>`physics-history`<br>`chemistry-history`<br>`economic-thought-history`<br>`psychology-cognitive-science` | `logic-computing-ai`<br>`biology-evolution-history`<br>`geography-cartography` |
-| 艺术与日常生活 | **— 空白** | **— 空白** | **— 空白** |
+| 艺术与日常生活 | **— 空白** | `music-history`<br>`architecture-history`<br>`theatre-performance`<br>`film-moving-image` | `food-history`<br>`clothing-fashion`<br>`sports-competition` |
 | 中国专题 | **— 空白** | **— 空白** | **— 空白** |
 | 现代 / 当代系统 | **— 空白** | **— 空白** | **— 空白** |
 
@@ -198,7 +198,7 @@
 | egypt | 0 | 1 | 0 |
 | eurasia | 0 | 1 | 0 |
 | europe | 0 | 3 | 0 |
-| global | 2 | 12 | 22 |
+| global | 2 | 16 | 25 |
 | japan | 0 | 1 | 0 |
 | korea | 0 | 0 | 1 |
 | middle-east | 0 | 2 | 0 |

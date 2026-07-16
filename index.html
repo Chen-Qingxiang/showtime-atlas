@@ -41,7 +41,7 @@
         <div class="tool-popover">
           <label class="field"><span>本地背景库</span><select id="background-select"></select></label>
           <button type="button" data-action="load-background">加载所选背景</button>
-          <button type="button" data-action="load-recommended">加载智能推荐</button>
+          <button type="button" data-action="load-recommended">查看智能推荐</button>
           <label class="field"><span>内置示例</span><select id="example-select"></select></label>
           <button type="button" data-action="load-example">加载示例图层</button>
         </div>
@@ -190,6 +190,16 @@
       </div>
     </aside>
   </div>
+
+  <dialog id="background-recommendation-dialog" class="background-recommendation-dialog">
+    <form method="dialog" class="dialog-form">
+      <header><div><span class="eyebrow">本地背景库</span><h2>可解释的背景推荐</h2></div><button class="close-button" value="cancel" aria-label="关闭">×</button></header>
+      <p class="form-help">推荐只做排序，不会自动加载。你可以逐层检视理由、暂时拒绝，或关闭窗口后从背景菜单手动选择任意 CSV。</p>
+      <p id="background-recommendation-summary" class="recommendation-summary" aria-live="polite">等待分析</p>
+      <div id="background-recommendations" class="background-recommendations" aria-live="polite"></div>
+      <footer><button id="reset-background-dismissals" type="button" data-action="reset-background-dismissals" hidden>恢复已忽略项</button><span class="spacer"></span><button value="cancel">关闭</button></footer>
+    </form>
+  </dialog>
 
   <dialog id="advanced-import-dialog">
     <form method="dialog" id="advanced-import-form" class="dialog-form">

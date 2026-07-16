@@ -13,7 +13,8 @@ import { createEvent, createStore, deleteEvent, deleteNamedView, findEvent, move
 import { parseTimeExpression } from './src/time.js';
 import { bindTimelineInteractions } from './src/canvas-interactions.js';
 import { runBrowserSelfTests } from './src/browser-selftest.js';
-import { closeMenus, escapeHTML, renderDiff, renderEventDetails, renderLayers, renderProbePanel, renderProjectSummary, renderQuality, renderRecents, renderSearchResults, renderStatistics, renderViews, switchTab, toast, updateViewStatus } from './src/ui.js';
+import { indexBackgroundCSV, recommendBackgrounds as recommendBackgroundLayers } from './src/background-recommendations.js';
+import { closeMenus, escapeHTML, renderBackgroundRecommendations, renderDiff, renderEventDetails, renderLayers, renderProbePanel, renderProjectSummary, renderQuality, renderRecents, renderSearchResults, renderStatistics, renderViews, switchTab, toast, updateViewStatus } from './src/ui.js';
 
 const EXAMPLES = [
   'examples/中国朝代.csv', 'examples/皇帝在位时间.csv', 'examples/皇帝在位时间_日期.csv',
@@ -34,6 +35,11 @@ let currentDiff = null;
 let diffVisible = true;
 let nextProbeIsSecond = false;
 let backgroundLibrary = [];
+let backgroundVocabulary = { tags: [], regions: [] };
+let backgroundSynonyms = { tags: {}, regions: {} };
+let backgroundIndexPromise = null;
+let latestBackgroundRecommendations = [];
+const dismissedBackgroundIds = new Set();
 let pendingSharedView = readShareHash();
 let projectDialogMode = 'edit';
 
@@ -51,6 +57,10 @@ async function fetchText(path) {
   const response = await fetch(encodeURI(path), { cache: 'no-store' });
   if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
   return response.text();
+}
+
+async function fetchJSON(path) {
+  return JSON.parse(await fetchText(path));
 }
 
 function activeReport(workspace = store.get()) {
@@ -291,23 +301,53 @@ async function openFullExample() {
   } catch (error) { toast(`示例项目尚不可用：${error.message}`, 'error'); }
 }
 
-function recommendBackgrounds(limit = 3) {
-  const workspace = store.get();
-  const text = `${workspace.name} ${workspace.topic} ${workspace.description} ${workspace.layers.map((layer) => `${layer.name} ${layer.events.slice(0, 80).map((event) => event.title).join(' ')}`).join(' ')}`.toLowerCase();
-  const vocabulary = {
-    china: ['中国', '宋', '唐', '明', '清', '苏轼', '李清照'], politics: ['政治', '帝', '朝代', '战争', '政权', '变法'],
-    philosophy: ['哲学', '思想', '康德', '孔子'], thought: ['思想', '哲学', '宗教'], literature: ['文学', '诗', '词', '小说', '艺术'],
-    science: ['科学', '技术', '天文'], geology: ['地质', '生命', '演化'], 'deep-time': ['宇宙', '地质', '生命'],
-    economy: ['经济', '金融', '贸易'], religion: ['宗教', '佛教', '基督', '伊斯兰'], war: ['战争', '军事'], japan: ['日本'],
+function controlledValuesFromLibrary() {
+  return {
+    tags: [...new Set(backgroundLibrary.flatMap((entry) => entry.tags || []))],
+    regions: [...new Set(backgroundLibrary.flatMap((entry) => entry.regions || []))],
   };
-  const loaded = new Set(workspace.layers.map((layer) => layer.file));
-  return backgroundLibrary.filter((entry) => !loaded.has(entry.file)).map((entry) => {
-    let score = entry.tags.reduce((sum, tag) => sum + (vocabulary[tag] || [tag]).filter((word) => text.includes(word)).length * 4, 0);
-    if (entry.name.includes('中国朝代') && /宋|苏轼|李清照|中国/.test(text)) score += 8;
-    if (entry.name.includes('文学') && /诗|词|文学/.test(text)) score += 7;
-    if (entry.name.includes('思想') && /哲学|思想/.test(text)) score += 7;
-    return { ...entry, score };
-  }).sort((a, b) => b.score - a.score || a.name.localeCompare(b.name, 'zh-CN')).slice(0, limit);
+}
+
+async function ensureBackgroundIndex() {
+  if (backgroundLibrary.every((entry) => entry.timeRange || entry.indexError)) return backgroundLibrary;
+  if (!backgroundIndexPromise) {
+    backgroundIndexPromise = Promise.all(backgroundLibrary.map(async (entry) => {
+      try {
+        return indexBackgroundCSV(entry, await fetchText(entry.file));
+      } catch (error) {
+        return { ...entry, indexError: error.message, timeRange: null };
+      }
+    })).then((entries) => {
+      backgroundLibrary = entries;
+      return entries;
+    });
+  }
+  return backgroundIndexPromise;
+}
+
+function refreshBackgroundRecommendations() {
+  latestBackgroundRecommendations = recommendBackgroundLayers(store.get(), backgroundLibrary, {
+    vocabulary: backgroundVocabulary,
+    synonyms: backgroundSynonyms,
+    excludedIds: dismissedBackgroundIds,
+    limit: 6,
+  });
+  renderBackgroundRecommendations(latestBackgroundRecommendations, {
+    dismissedCount: dismissedBackgroundIds.size,
+    unavailableCount: backgroundLibrary.filter((entry) => entry.indexError).length,
+  });
+}
+
+async function showBackgroundRecommendations() {
+  const dialog = document.getElementById('background-recommendation-dialog');
+  if (!dialog.open) dialog.showModal();
+  renderBackgroundRecommendations([], { status: 'loading', dismissedCount: dismissedBackgroundIds.size });
+  try {
+    await ensureBackgroundIndex();
+    refreshBackgroundRecommendations();
+  } catch (error) {
+    renderBackgroundRecommendations([], { status: 'error', message: error.message, dismissedCount: dismissedBackgroundIds.size });
+  }
 }
 
 function openProjectDialog(mode) {
@@ -465,7 +505,22 @@ async function handleAction(action, target) {
   else if (action === 'open-example-project') openFullExample();
   else if (action === 'advanced-import') document.getElementById('advanced-import-dialog').showModal();
   else if (action === 'load-background') { const entry = backgroundLibrary.find((item) => item.id === document.getElementById('background-select').value); if (entry) loadRemoteLayers([{ ...entry, role: 'background' }], '背景'); }
-  else if (action === 'load-recommended') { const entries = recommendBackgrounds(); if (entries.length) loadRemoteLayers(entries.map((entry) => ({ ...entry, role: 'background' })), '推荐背景'); else toast('当前背景库都已加载。'); }
+  else if (action === 'load-recommended') await showBackgroundRecommendations();
+  else if (action === 'load-background-recommendation') {
+    const entry = backgroundLibrary.find((item) => item.id === target.dataset.backgroundId);
+    if (entry) {
+      await loadRemoteLayers([{ ...entry, role: 'background' }], '推荐背景');
+      refreshBackgroundRecommendations();
+    }
+  }
+  else if (action === 'dismiss-background-recommendation') {
+    dismissedBackgroundIds.add(target.dataset.backgroundId);
+    refreshBackgroundRecommendations();
+  }
+  else if (action === 'reset-background-dismissals') {
+    dismissedBackgroundIds.clear();
+    refreshBackgroundRecommendations();
+  }
   else if (action === 'load-example') { const file = document.getElementById('example-select').value; if (file) loadRemoteLayers([{ file, role: 'primary' }], '示例'); }
   else if (action === 'toggle-left') { const opening = document.body.classList.contains('left-collapsed'); document.body.classList.toggle('left-collapsed'); if (opening && matchMedia('(max-width: 940px)').matches) document.body.classList.add('right-collapsed'); persistPanels(); setTimeout(() => renderer.resize(), 200); }
   else if (action === 'toggle-right') { const opening = document.body.classList.contains('right-collapsed'); document.body.classList.toggle('right-collapsed'); if (opening && matchMedia('(max-width: 940px)').matches) document.body.classList.add('left-collapsed'); persistPanels(); setTimeout(() => renderer.resize(), 200); }
@@ -654,8 +709,17 @@ async function init() {
   document.body.classList.toggle('left-collapsed', preferences.leftCollapsed ?? narrow);
   document.body.classList.toggle('right-collapsed', preferences.rightCollapsed ?? narrow);
   try {
-    backgroundLibrary = await fetch('background/manifest.json', { cache: 'no-store' }).then((response) => response.json());
+    backgroundLibrary = await fetchJSON('background/manifest.json');
   } catch (error) { console.warn('背景 manifest 加载失败', error); }
+  try {
+    [backgroundVocabulary, backgroundSynonyms] = await Promise.all([
+      fetchJSON('background/vocabulary.json'),
+      fetchJSON('background/synonyms.json'),
+    ]);
+  } catch (error) {
+    backgroundVocabulary = controlledValuesFromLibrary();
+    console.warn('背景受控词表加载失败，将使用 manifest 元数据', error);
+  }
   document.getElementById('background-select').innerHTML = backgroundLibrary.map((entry) => `<option value="${escapeHTML(entry.id)}">${escapeHTML(entry.name)}</option>`).join('');
   document.getElementById('example-select').innerHTML = EXAMPLES.map((file) => `<option value="${escapeHTML(file)}">${escapeHTML(file.split('/').pop().replace(/\.csv$/i, ''))}</option>`).join('');
 
@@ -706,7 +770,17 @@ async function init() {
   refreshRecents();
   const observer = new ResizeObserver(() => { renderer.resize(); minimap.draw(); });
   observer.observe(document.querySelector('.timeline-main'));
-  window.__SHOWTIME__ = { get workspace() { return store.get(); }, store, renderer, minimap, openExample: openFullExample, resetView, selfTests: null };
+  window.__SHOWTIME__ = {
+    get workspace() { return store.get(); },
+    get backgroundRecommendations() { return latestBackgroundRecommendations; },
+    store,
+    renderer,
+    minimap,
+    openExample: openFullExample,
+    resetView,
+    showBackgroundRecommendations,
+    selfTests: null,
+  };
   window.__SHOWTIME__.selfTests = await runBrowserSelfTests(renderer);
 }
 

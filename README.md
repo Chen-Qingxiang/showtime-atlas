@@ -23,7 +23,7 @@ time,title
 ```
 
 1. 打开站点，选择“添加数据 → 添加 CSV / 旧 ZIP”，或在“高级文本导入”中粘贴 CSV。
-2. 从“背景”加载本地背景层或智能推荐。
+2. 从“背景”手动加载本地层，或先查看智能推荐的时间、尺度、区域与标签理由，再逐层决定是否加载。
 3. 在左栏整理图层分组、角色、顺序、颜色和可见性。
 4. 搜索人物、地点、标签或时间范围；点击画布固定时间探针。
 5. 保存命名视图，或导出 `.showtime.zip`、PNG、SVG 与 CSV。
@@ -45,7 +45,9 @@ time,title
 - 图层可隐藏、改色、重命名、排序、删除、调暗和 solo
 - 分组可折叠、重命名、排序、整体隐藏、独显和调暗
 - `primary`、`context`、`anchor`、`background` 除颜色外还有线型、透明度、图形和角色标记差异
-- 内置 `background/` 40 个背景层与轻量推荐规则
+- 内置 `background/` 79 个背景层；推荐按时间重叠、尺度、区域和受控主题词排序
+- 推荐卡片展示四类理由，可逐层加载、暂时拒绝或恢复；手动选择始终可用
+- [背景库覆盖地图与最终审计](docs/background-library.md)
 
 ### 时间探针
 
@@ -153,13 +155,14 @@ references.md
 
 详见 [搜索、过滤和快捷键](docs/SEARCH_AND_SHORTCUTS.md)。
 
-## 保存与分享限制
+## 保存与分享
 
 - 工作区自动保存到当前浏览器的 IndexedDB；小型界面偏好才使用 localStorage。
 - 浏览器存储不是跨设备云备份。重要研究请定期导出 `.showtime.zip`。
 - 对内置、同源或 URL 可访问项目，分享链接可携带项目 URL 与视图状态。
 - 对本地文件，链接只包含项目名、图层显示、视图、过滤和探针，不包含原始数据；接收者仍需项目包。
-- 超过安全长度的 URL 不会生成，避免“看似可分享、实际已失效”的链接。
+
+存储、分享、浏览器和格式的完整边界见 [已知限制与研究边界](docs/known-limitations.md)。
 
 ## 开发
 
@@ -171,17 +174,17 @@ npm test          # Node 内置 test runner
 npm run check     # 语法检查 + 全部 Node 测试
 ```
 
-浏览器验收需要本机 Chrome 和 Playwright：
+浏览器验收需要本机 Chrome / Chromium；有 Playwright 时优先使用，Linux 环境也可通过内置 DevTools 回退流程运行：
 
 ```bash
 # 终端 1
 npm run dev
 
-# 终端 2；已安装 playwright 时直接运行
+# 终端 2
 npm run test:browser
 ```
 
-`scripts/browser-test.mjs` 会实际验证桌面端完整项目、单 CSV、多 CSV 与旧 ZIP 导入，搜索跳转、双探针、IndexedDB 保存后重载恢复、PNG / SVG / 项目包导出、统计、浏览器自测和移动端布局。没有本地 Playwright 时可通过 `PLAYWRIGHT_CORE_PATH` 指向已有安装。浏览器内自测结果位于 `window.__SHOWTIME__.selfTests`。
+`scripts/browser-test.mjs` 会实际验证可解释背景推荐、拒绝与手动覆盖，以及桌面端完整项目、单 CSV、多 CSV、旧 ZIP 导入、搜索跳转、双探针、IndexedDB 重载恢复、PNG / SVG / 项目包导出、统计、浏览器自测和 390 px 触屏布局。没有项目内 Playwright 时可通过 `PLAYWRIGHT_CORE_PATH` 指向已有安装；Linux 系统提供 Node `ws` 时会自动改用 Chrome DevTools 协议。浏览器内自测结果位于 `window.__SHOWTIME__.selfTests`。
 
 ### 模块结构
 
@@ -192,6 +195,7 @@ npm run test:browser
 | `src/zip.js`, `src/project.js` | ZIP、Manifest、项目导入导出与迁移 |
 | `src/storage.js`, `src/state.js` | IndexedDB、状态、编辑历史、命名视图 |
 | `src/search.js`, `src/probes.js`, `src/metadata.js` | 搜索过滤、探针、sidecar |
+| `src/background-recommendations.js` | 背景时间索引、尺度推断、受控信号和可解释排序 |
 | `src/lod.js`, `src/renderer.js`, `src/minimap.js` | LOD、Canvas、密度聚合、小地图 |
 | `src/diff.js`, `src/statistics.js`, `src/export.js`, `src/share.js` | diff、分析、导出、分享 |
 | `src/ui.js`, `src/canvas-interactions.js`, `app.js` | 界面渲染、输入手势、应用编排 |
@@ -202,13 +206,12 @@ npm run test:browser
 
 部署与排查见 [GitHub Pages 部署](docs/DEPLOYMENT.md)。
 
-## 已知限制
+## 路线图与已知边界
 
-- 不支持 ZIP64；项目导出使用兼容性高的未压缩 ZIP 条目，因此包可能比压缩 ZIP 大。
-- BCE 支持年份与年份区间；`公元前221-01-01` 这类 BCE 日期尚不支持。
-- CSV 不支持跨多行的带引号标题；单行内的逗号和双引号完全支持。
-- 事件关系图、多人协作、账号和云同步不在产品范围内。
-- 浏览器存储容量和文件下载上限取决于具体浏览器与设备。
+- [路线图](docs/roadmap.md)：已交付基线、背景库治理、推荐校准、比较查询与明确不做的方向。
+- [已知限制与研究边界](docs/known-limitations.md)：背景库、推荐、时间、CSV、项目包、浏览器、Canvas 与可访问性的影响和规避方式。
+
+README 只保留快速入口；设计承诺与限制以这两份文档为准。
 
 ## License
 

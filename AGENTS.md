@@ -38,7 +38,7 @@ Avoid treating the timeline as a static charting widget. The intended use is exp
 
 ## Background Library
 
-The first local background library lives in `background/`. It currently contains 40 reusable background layers. Treat these CSVs as reusable contextual layers rather than exhaustive source-of-truth chronologies. When extending the library, prefer stable, broadly useful layers that help many research topics orient themselves:
+The first local background library lives in `background/`. It currently contains 79 reusable background layers. Treat these CSVs as reusable contextual layers rather than exhaustive source-of-truth chronologies. When extending the library, prefer stable, broadly useful layers that help many research topics orient themselves:
 
 - general political skeletons
 - region-level context

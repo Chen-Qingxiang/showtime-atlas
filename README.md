@@ -216,3 +216,7 @@ README 只保留快速入口；设计承诺与限制以这两份文档为准。
 ## License
 
 MIT
+
+## PWA 安装与离线
+
+可通过 iPhone Safari「添加到主屏幕」、macOS Safari「添加到 Dock」或 Chrome/Edge 安装为独立应用。首次在线加载后，应用代码和背景目录可离线使用；单独的背景 CSV 和示例项目按首次访问缓存，未加载过的文件需要网络。Service Worker 仅缓存公开静态资源，不读写 IndexedDB、工作区或 localStorage；现有工作区仍由 IndexedDB 自动保存。建议定期导出 `.showtime.zip` 备份。在线打开优先获取新版，断网则回退缓存。
